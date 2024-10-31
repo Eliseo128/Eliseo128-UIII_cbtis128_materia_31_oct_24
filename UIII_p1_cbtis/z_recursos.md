@@ -25,4 +25,4 @@
 - en templates creamos el archivo base.html
 - visitamos la pagina bootstrap 5 obtenemos link de css y js
 - en bootstrap obtenemos ejemplo de barra de navegacion simple
--
+-https://youtu.be/uSbDMs7Y9yI?si=Vg879wCtIlEQarTD
