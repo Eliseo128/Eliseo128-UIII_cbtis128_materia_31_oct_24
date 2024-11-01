@@ -1,0 +1,60 @@
+{% include "base.html" %}
+
+{% block titulo %} Gestion de Materias{% endblock %}
+
+<!-- block cuerpo-->
+{% block cuerpo %}
+  <div class="row px-3">
+   <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4"><!-- columna izquierda-->
+     <h1>papa izquierda</h1>
+     <!-- tarjeta -->
+     <div class="card" >
+        <div class="card-body">
+          <form action="registrarMateria/" method="POST">{% csrf_token %} <!-- form-->
+            <div class="form-group">
+              <input type="text" id="txtcodigo" name="txtcodigo" class="form-control"  placeholder="Codigo materia" minlenght="6" maxLength="6" required>
+            </div>
+            <div class="form-group py-3">
+              <input type="text" id="txtnombre" name="txtnombre" class="form-control"  placeholder="Nombre materia" maxLength="100" required>
+            </div>
+            <div class="form-group p-3">
+              <input type="text" id="numcreditos" name="numcreditos" class="form-control"   min="1" max="9" value="1"  required>
+            </div>
+            <div class="form-group p-3">
+              <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+            </div>
+          </form> <!-- form-->
+        </div>
+    </div> 
+     <!-- tarjeta -->
+   </div><!-- columna izquierda-->
+   <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h1>mama derecha</h1>
+        <div class="table-responsive"><!-- tabla responsiva-->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th scope="col">Num</th>
+                      <th scope="col">codigo</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Creditos</th>
+                    </tr>
+                  </thead> <!-- encabezado-->
+                  <tbody>
+                    {% for m in mismaterias %}
+                    <tr>
+                      <td>{{forloop.counter}}</td>
+                      <td>{{m.codigo}}</td>
+                      <td>{{m.nombre}}</td>
+                      <td>{{m.creditos}}</td>
+
+                    </tr>
+                    
+                    {% endfor %}
+                  </tbody>
+            </table>
+          </div> <!-- tabla responsiva-->
+   </div><!-- columna derecha-->
+  </div><!-- la fila row-->
+{% endblock %}
+<!-- block cuerpo-->
